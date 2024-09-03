@@ -15,11 +15,6 @@ const schema = makeExecutableSchema({
     resolvers : resolversArray
 });
 
-const rootValue = {
-    products : require('./products/products.model'),
-    orders : require('./orders/orders.model')
-};
-
 const graphqlHTTPOptions = {
     schema,
     graphiql: true
