@@ -5,13 +5,15 @@ const { makeExecutableSchema } = require('@graphql-tools/schema');
 const { loadFilesSync } = require('@graphql-tools/load-files');
 
 const typeArray = loadFilesSync(path.join(__dirname, "**/*.graphql"));
+const resolversArray = loadFilesSync(path.join(__dirname, "**/*.resolvers.js"));
 
 
 const app = express();
 
 const schema = makeExecutableSchema({
-    typeDefs : [typeArray]
-})
+    typeDefs : typeArray,
+    resolvers : resolversArray
+});
 
 const rootValue = {
     products : require('./products/products.model'),
@@ -20,7 +22,6 @@ const rootValue = {
 
 const graphqlHTTPOptions = {
     schema,
-    rootValue,
     graphiql: true
 }
 
