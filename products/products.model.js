@@ -34,7 +34,20 @@ const products = [
 function getAllProducts(){
     return products;
 }
+function getProductByPrice(min, max){
+    return products.filter((product) =>{
+        return product.price >=min && product.price <= max;
+    });
+}
+
+function getProductById(id){
+    return products.filter((product) =>{
+        return product.id === id;
+    });
+}
 
 module.exports = {
-    getAllProducts
+    getAllProducts,
+    getProductByPrice,
+    getProductById
 }
