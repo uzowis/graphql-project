@@ -1,4 +1,6 @@
 const { 
+    addNewProduct,
+    addProductReview,
     getAllProducts,
     getProductByPrice,
     getProductById
@@ -15,4 +17,13 @@ module.exports = {
         productById : (_, args) => {
             return getProductById(args.id)
         }
-}}
+    },
+    Mutation : {
+        addNewProduct : (_, args) => {
+            return addNewProduct(args.id, args.description, args.price);
+        },
+        addProductReview : (_, args) => {
+            return addProductReview(args.id, args.rating, args.comment);
+        }
+    }
+}

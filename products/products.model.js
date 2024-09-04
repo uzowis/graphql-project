@@ -28,7 +28,14 @@ const products = [
                 comment : 'Quality not as expected, Fast Delivery'
             },
         ],
+    },
+    {
+        id : 'goldShoe',
+        description : ' Golden boot for football',
+        price : 40,
+        reviews : [],
     }
+
 ]
 
 function getAllProducts(){
@@ -46,8 +53,36 @@ function getProductById(id){
     });
 }
 
+function addNewProduct(id, description, price){
+    const newProduct = {
+        id,
+        description,
+        price,
+        reviews : []
+    }
+    products.push(newProduct);
+    return newProduct;
+}
+function addProductReview(id, rating, comment){
+    const matchedProduct = getProductById(id);
+ 
+    if(matchedProduct){
+         const newProductReview = {
+             rating,
+             comment
+         }
+         
+         matchedProduct[0].reviews.push(newProductReview);
+         return newProductReview
+    }
+    
+ 
+ }
+
 module.exports = {
     getAllProducts,
     getProductByPrice,
-    getProductById
+    getProductById,
+    addNewProduct,
+    addProductReview
 }
