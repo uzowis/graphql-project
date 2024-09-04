@@ -28,14 +28,7 @@ const products = [
                 comment : 'Quality not as expected, Fast Delivery'
             },
         ],
-    },
-    {
-        id : 'goldShoe',
-        description : ' Golden boot for football',
-        price : 40,
-        reviews : [],
     }
-
 ]
 
 function getAllProducts(){
